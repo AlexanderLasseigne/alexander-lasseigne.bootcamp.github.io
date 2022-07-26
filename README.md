@@ -1,4 +1,4 @@
-# alexander-lasseigne.github.io
+# alexander-lasseigne.bootcamp.github.io
 
 ## How to run git commands in terminal 
 1) in terminal, type => git add .A 
