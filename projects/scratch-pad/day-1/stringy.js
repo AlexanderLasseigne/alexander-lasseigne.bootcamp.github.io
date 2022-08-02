@@ -211,13 +211,13 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-//compare 2 strings of a single character 
+//compare 2 strings of single characters 
     if (stringOne > stringTwo){
-        return 1;
+        return 1; //return 1 if stringOne is higher numerical value/ lower alphabetic order
     } else if (stringOne < stringTwo){
-        return -1;
+        return -1; //return -1 if stringOne is lower numerical value/ higher alphabetic order
         } else if (stringOne == stringTwo){
-          return 0;
+          return 0; //return 0 if strings are equal-ish :)
           }
 
 }
