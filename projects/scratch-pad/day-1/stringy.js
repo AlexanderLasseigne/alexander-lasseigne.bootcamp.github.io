@@ -108,8 +108,13 @@ return lostring[0] === lochar
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
-
+    //force lowercase on both string paramaters to ensure case-insensitivity 
+    var lostring = string.toLowerCase();
+    var lochar = char.toLowerCase();
+    //check to see if char matches last character in string
+    return lostring[lostring.length - 1] === lochar
+            ? true
+            : false;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -121,8 +126,10 @@ function endsWith(string, char) {
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
+    //initialize output 
+    //concatenate 2 string parameters and return the value
+    var output = stringOne + stringTwo;
+    return output;
 
     // YOUR CODE ABOVE HERE //
 }
