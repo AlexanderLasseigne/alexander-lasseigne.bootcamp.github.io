@@ -211,13 +211,19 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+//compare 2 strings of a single character 
+    if (stringOne > stringTwo){
+        return 1;
+    } else if (stringOne < stringTwo){
+        return -1;
+        } else if (stringOne == stringTwo){
+          return 0;
+          }
 
-
-
-
-    // YOUR CODE ABOVE HERE //
 }
 
+
+    // YOUR CODE ABOVE HERE //}
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
