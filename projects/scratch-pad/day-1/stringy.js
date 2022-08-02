@@ -162,11 +162,16 @@ function join(stringOne, stringTwo) {
  *
  *      longest("ben", "maggie");   //-> "maggie"
  *
- * TIP: What property of the String do we need to compare?
+ * TIP: What property of the String do we need to compare? //**length
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+// compare .length of stringTwo to stringOne and if greater than stringOne.length, return stringTwo.
+    if (stringTwo.length > stringOne.length){
+        return stringTwo;
+    } else {  //Otherwise return stringOne as longest
+        return stringOne;
+        }
 
 
     // YOUR CODE ABOVE HERE //
