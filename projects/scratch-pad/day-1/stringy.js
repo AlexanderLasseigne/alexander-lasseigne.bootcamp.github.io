@@ -14,7 +14,8 @@
  */
 function length(string) {
     // YOUR CODE BELOW HERE //
-    
+    //return the length of a given string parameter
+    return string.length;
 
 
     // YOUR CODE ABOVE HERE //

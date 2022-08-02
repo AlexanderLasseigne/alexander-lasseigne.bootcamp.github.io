@@ -21,18 +21,8 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-/*
-I: Takes string as parameter for input
-O: returns a string containing the result of input parameter with characters in reverse
-C: 
-E:
-*/
-var output = ""; 
-for (var i = input.length - 1; i >= 0; i--){
-  return output += input[i];
-}
-console.log(reverseString('poopy'));
-
+    
+    
     
     
     // YOUR CODE GOES ABOVE HERE //
