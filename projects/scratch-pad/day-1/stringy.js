@@ -186,7 +186,16 @@ function longest(stringOne, stringTwo) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    //return 1 if numerical value of stringTwo is greater
+    if (stringOne < stringTwo){
+        return 1;
+        //return -1 if numerical value of stringOne is greater
+      } else if (stringTwo < stringOne){
+        return -1;
+          //return 0 if strings are same numerical value
+        } else if (stringOne == stringTwo){
+          return 0;
+          }
 
 
     // YOUR CODE ABOVE HERE //
