@@ -60,7 +60,19 @@ function toUpperCase(string) {
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
-
+//convert string paramater to all lower-case  
+var lostring = string.toLowerCase();
+var output = ''; //initialize output to value of an empty string
+//begin for loop to iterate over the index of string
+for (var i = 0; i <= lostring.length - 1; i++){
+  //if spot in index iteration at time of loop is a blank space then replace it with a '-' in our output variable that is being created through each iteration
+  if (lostring[i] === ' '){
+    output += '-';
+  } else { //if index location is not a space then update output 
+    output += lostring[i];
+  }
+}
+return output; //return new string of dashcase created from string
 
 
     // YOUR CODE ABOVE HERE //

@@ -21,6 +21,14 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
+  //initialize var output to collect the letters as they are being iterated over 
+  var output = '';
+  //initialize for loop to iterate over entire input paramater in reverse
+  for (var i = input.length - 1; i >= 0; i--){
+    //update output by adding each index position of input
+    output += input[i];
+  }
+return output; //return value of input in reverse order as output 
     
     
     
