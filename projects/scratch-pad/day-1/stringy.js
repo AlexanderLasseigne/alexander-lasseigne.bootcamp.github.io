@@ -146,7 +146,10 @@ function concat(stringOne, stringTwo) {
  */
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+    // Initialize args with the value of an array created from the pulled from paramaters of join
     var args = Array.from(arguments);
+    //return a string of all elements of array joined together with no seperator
+    return args.join('');
 
 
     // YOUR CODE ABOVE HERE //
