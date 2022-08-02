@@ -81,8 +81,16 @@ function toDashCase(string) {
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
 
+//force string and char to lowercase to ensure case-insensitivity
+var lostring = string.toLowerCase();
+var lochar = char.toLowerCase();
+//check to see if char matches first letter of string
+return lostring[0] === lochar 
+        //return true if char matches first letter of string
+        ? true
+        //otherwise return false
+        : false;
     
-
     // YOUR CODE ABOVE HERE //
 }
 
