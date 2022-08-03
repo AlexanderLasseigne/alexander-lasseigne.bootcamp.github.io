@@ -35,7 +35,37 @@
 
 function greeter(hour) {
     // YOUR CODE BELOW HERE //
-    
+ //I: a whole number representing time
+ //o: one of the following 4 msgs printed to screen 
+ //   // hour is 0-11
+ // * Good Morning!
+ //   // hour is 12-16
+ // * Good Afternoon! 
+ //   // hour is 17-21
+ // * Good Evening!
+ //   // hour is 22-24 
+ // * Good Night!
+ //c:  Messages according to whether or not the hour given falls within it's range
+ //e:  Message strings must b case sensitive
+ 
+ // if hour entered is 0 or greater AND&& less than 12 print 'Good Morning!'
+if (hour >= 0 && hour < 12){
+    console.log('Good Morning!');
+  } 
+  // if hour entered is 12 or greater AND&& less than 17 print 'Good Afternoon!'
+  else if (hour >= 12 && hour < 17){
+    console.log('Good Afternoon!');
+  } 
+  // if hour is 17 or greater AND&& less than 22 print 'Good Evening!'
+  else if (hour >= 17 && hour < 22){
+    console.log('Good Evening!')    
+    // if hour is 22 or greater AND&& less than 25 print 'Good Night!'
+  } else if (hour >= 22 && hour < 25){
+    console.log('Good Night!')
+    // Print 'You have entered an incorrect hour' if anything else
+  } else {console.log('You have entered an incorrect hour')} 
+  
+
     
     
     
