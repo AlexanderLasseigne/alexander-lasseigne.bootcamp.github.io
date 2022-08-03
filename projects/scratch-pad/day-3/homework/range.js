@@ -23,8 +23,34 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
+  
+  //I: 2 integers
+  //O: return ARRAY of all integers from start value give to end value given  
+  //C: If start is greater than end list in reverse order
+  //E: use .push()
+
+//initialize arr as an empty array to push values to to be returned
+var arr = [];
+//initialize i as counter 
+var i;
+//if start is less than end value begin for loop at start value and increment by one until reaching end
+if (start < end){
+  for (i = start; i <= end; i++){
+    //push i value into arr
+    arr.push(i);
+    }
+  } 
+//if start is greater than end begin for loop at start value and decrement by one until reaching end
+  else if (start > end){
+  for (i = start; i >= end; i--){
+    //push i value into arr
+    arr.push(i);
+  }
+}  
+//return arr to function
+return arr;    
     
-    
+  
     
     
     // YOUR CODE GOES ABOVE HERE //
