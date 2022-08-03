@@ -118,6 +118,8 @@ return lostring[0] === lochar
  * TIP: How can you use Array access to your advantage here? How can you
  *      ensure uppercase and lowercase can be compared equally?
  */
+
+
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
     //force lowercase on both string paramaters to ensure case-insensitivity 
