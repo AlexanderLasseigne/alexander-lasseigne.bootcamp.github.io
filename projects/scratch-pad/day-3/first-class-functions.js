@@ -121,9 +121,21 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
+
+//I: Array of Strings and a Function
+//O: boolean
+//C: all strings must pass the test for a true value
+//E:
+var yes = 0;
     
-    
-    
+for (var i = 0; i <= strings.length - 1; i++){
+    if (test(strings[i]) === true){
+      yes += 1;
+    }        
+}
+if (yes === strings.length){
+  return true;
+} else {return false;}
     
     // YOUR CODE ABOVE HERE //
 }
