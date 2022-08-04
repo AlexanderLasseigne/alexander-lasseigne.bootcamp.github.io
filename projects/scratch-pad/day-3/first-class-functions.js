@@ -13,7 +13,17 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
+
+//I: a string or number to base tests against 
+//O: return a Function 
+//C: function being returned tests wheather the given VALUE is greater than the BASE
+//E: 
+  // test if value is greater than base
+  return function(value){
+    if (value > base){
+      return true;
+    } else {return false;}
+    }
     
     
     
@@ -28,7 +38,11 @@ function createGreaterThanFilter(base) {
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
+    return function(value){
+        return value < base
+          ? true
+          : false;
+      }
     
     
     // YOUR CODE ABOVE HERE //
@@ -41,9 +55,14 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+//I: single character
+//O: function that tests whether a given String matches our startsWith parameter character passed in
+
+    return function(string){
+        return string[0].toLowerCase() === startsWith.toLowerCase()
+            ? true
+            : false;
+    }
     
     // YOUR CODE ABOVE HERE //
 }
@@ -56,7 +75,12 @@ function createStartsWithFilter(startsWith) {
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
     
-    
+    return function(string){
+    return string[string.length - 1].toLowerCase() === endsWith.toLowerCase()
+        ? true  
+        : false;   
+        return string;
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -72,7 +96,15 @@ function createEndsWithFilter(endsWith) {
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
     
-    
+//I: Array of Strings and a Function
+//O: return a new modified Array of Strings
+//C: all strings in our Array of strings parameter must be run through the modify function
+//o:
+    var arr = [];
+    for (var i = 0; i <= strings.length - 1; i++){
+        arr.push(modify(strings[i]));
+    }
+    return arr;
     
     
     // YOUR CODE ABOVE HERE //

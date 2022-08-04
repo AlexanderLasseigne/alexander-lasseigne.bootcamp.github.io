@@ -32,7 +32,8 @@ function isArray(value) {
 function isObject(value) {
     // YOUR CODE BELOW HERE //
     
-    
+    // determine if typeof value strictly equals object AND value is not an array 
+    // AND value.... see day 3 bootcamp lecture for rest 2:30 teaches clock
     
     
     // YOUR CODE ABOVE HERE //
