@@ -15,9 +15,10 @@
 function isArray(value) {
     // YOUR CODE BELOW HERE //
     
-    
-    
-    
+    // using Array.isArray() to return true if specifically an array, false otherwise.
+    // to avoid .typeof returning false b/c it sees complex data types as objects.
+    return Array.isArray(value) 
+
     // YOUR CODE ABOVE HERE //
 }
 
@@ -34,8 +35,13 @@ function isObject(value) {
     
     // determine if typeof value strictly equals object AND value is not an array 
     // AND value.... see day 3 bootcamp lecture for rest 2:30 teaches clock
-    
-    
+    //.. value is not null AND value is not in date format
+    if (typeof value === 'object' && Array.isArray(value) === false && value !== null && Object.prototype.toString.call(value) !== "[object Date]"){
+        return true;
+      } else {
+        return false;
+      }
+
     // YOUR CODE ABOVE HERE //
 }
 
@@ -47,12 +53,18 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
-    
+    // return true if: value is an object AND value does not equal null, AND value is not a date, OR value is an array
+    if (typeof value === 'object' && value !== null && Object.prototype.toString.call(value) !== '[object Date]' || Array.isArray(value) === true){
+        return true;
+        } else {
+        return false;  //otherwise return false
+        }                             
     
     
     // YOUR CODE ABOVE HERE //
 }
+
+
 
 /**
  * Given an input value, return the type of the value as a String
@@ -76,7 +88,27 @@ function isCollection(value) {
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
     
-    
+    if (typeof value === 'string'){
+        return 'string';
+      } else if (Array.isArray(value) === true){
+        return 'array';
+      } else if (typeof value === 'object' && Array.isArray(value) === false && value !== null && Object.prototype.toString.call(value) !== "[object Date]"){
+        return 'object';
+      } else if (value === 'undefined'){
+        return 'undefined';
+      } else if (typeof value === 'number'){
+        return 'number';  
+      } else if (typeof value === 'boolean'){
+        return 'boolean';
+      } else if (value === null){
+        return 'null';
+      } else if (typeof value === 'function'){
+        return 'function';
+      } else if (Object.prototype.toString.call(value) === "[object Date]"){
+        return 'date';
+      } else {
+        return null;
+      }
     
     
     // YOUR CODE ABOVE HERE //
