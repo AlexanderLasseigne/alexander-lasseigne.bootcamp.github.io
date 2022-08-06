@@ -34,22 +34,50 @@
  */
 
 // YOUR CODE GOES BELOW HERE //
+// FACTORY FUNCTION 
 function makeContact(id, nameFirst, nameLast) {
-
+  // initialize obj to be our contact object
+  var obj = {};
+  // add keys from parameter names and add values from arguments given
+  obj.id = id;
+  obj.nameFirst = nameFirst;
+  obj.nameLast = nameLast
+  // return obj
+  return obj;
 } 
+
+
+ 
 
 
 function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = [];
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
-        }
+        },
+        // done in class day 4 - addContacts pushes it's parameter into our contacts array
+        addContacts: function(contacts){
+            contacts.push(contacts);
+        },
+        // takes a full name string like 'Max Gaudin' and returns the contact object if found in list
+        // else return 'undefined'
+        findContact: function(fullName){
+
+        },
+        // take contact object to be removed from the contact-list
+        removeContact: function(contact){
+
+        },
+        // returns a String formated with all the full-names separated with a line-break
+        printAllContactNames: function(){
+
+        } 
     }
 }
 
