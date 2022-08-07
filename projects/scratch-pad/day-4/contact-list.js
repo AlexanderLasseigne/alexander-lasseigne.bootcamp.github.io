@@ -62,14 +62,16 @@ function makeContactList() {
             return contacts.length;
         },
         // done in class day 4 - addContacts pushes it's parameter into our contacts array
-        addContacts: function(contacts){
-            contacts.push(contacts);
+        addContact: function(contact){
+            contacts.push(contact);
         },
         // takes a full name string like 'Max Gaudin' and returns the contact object if found in list
         // else return 'undefined'
         findContact: function(fullName){
 
         },
+        
+
         // take contact object to be removed from the contact-list
         removeContact: function(contact){
 
