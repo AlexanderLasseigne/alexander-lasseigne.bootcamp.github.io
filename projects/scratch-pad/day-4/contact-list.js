@@ -91,18 +91,17 @@ function makeContactList() {
         printAllContactNames: function(){
          //string to store concatenated names
          var string = '';
+         //allNames to work on string format
          var allNames = '';   
-         //FOR entire length of array
+         //FOR entire length of array contacts loop and iterate 1
          for (var i = 0; i < contacts.length; i++){
-             //add string to itself and objects firstname ' ' lastname'.'
+             //add string to itself and '.' + objects firstname ' ' lastname looping through our array of objects
              string += '.' + contacts[i].nameFirst + ' ' + contacts[i].nameLast;  
          }              
-
-             allNames = string.split('').join('');
+              //Replace all '.' in string with line break
               allNames = string.split('.').join('\n');
-            
-                  console.log(allNames);
-                    return allNames.slice(1);
+                //return first name ' ' last name each on own line and remove the first line break     
+                return allNames.slice(1);
         }    
     }
 }
