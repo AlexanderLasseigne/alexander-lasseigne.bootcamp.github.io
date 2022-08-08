@@ -81,7 +81,9 @@ function makeContactList() {
         // take contact object to be removed from the contact-list
         removeContact: function(contact){
             for (var i = 0; i < contacts.length; i++){
-                
+                if (contacts[i].id === contact.id){
+                     contacts.splice(contacts[i], 1);
+                }
             }
 
         },
