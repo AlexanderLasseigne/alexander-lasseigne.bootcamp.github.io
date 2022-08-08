@@ -68,12 +68,21 @@ function makeContactList() {
         // takes a full name string like 'Max Gaudin' and returns the contact object if found in list
         // else return 'undefined'
         findContact: function(fullName){
-
+            for (var i = 0; i < contacts.length; i++){
+                if (contacts[i].nameFirst + ' ' + contacts[i].nameLast === fullName){
+                    return contacts[i];
+                } else {
+                    return undefined;
+                }
+            }
         },
         
 
         // take contact object to be removed from the contact-list
         removeContact: function(contact){
+            for (var i = 0; i < contacts.length; i++){
+                
+            }
 
         },
         // returns a String formated with all the full-names separated with a line-break
