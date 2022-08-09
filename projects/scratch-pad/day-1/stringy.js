@@ -202,10 +202,10 @@ function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     //return 1 if numerical value of stringTwo is greater
     if (stringOne < stringTwo){
-        return 1;
+        return -1;
         //return -1 if numerical value of stringOne is greater
       } else if (stringTwo < stringOne){
-        return -1;
+        return 1;
           //return 0 if strings are same numerical value
         } else if (stringOne == stringTwo){
           return 0;
@@ -227,9 +227,9 @@ function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 //compare 2 strings of single characters 
     if (stringOne > stringTwo){
-        return 1; //return 1 if stringOne is higher numerical value/ lower alphabetic order
+        return -1; //return 1 if stringOne is higher numerical value/ lower alphabetic order
     } else if (stringOne < stringTwo){
-        return -1; //return -1 if stringOne is lower numerical value/ higher alphabetic order
+        return 1; //return -1 if stringOne is lower numerical value/ higher alphabetic order
         } else if (stringOne == stringTwo){
           return 0; //return 0 if strings are equal-ish :)
           }

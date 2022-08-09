@@ -119,6 +119,9 @@ function modifyStrings(strings, modify) {
  * 
  * TIP: You need to loop over the Strings, right? And pass them to the test?
  */
+
+
+
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
 
