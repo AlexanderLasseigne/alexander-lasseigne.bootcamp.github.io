@@ -85,8 +85,8 @@ function makeContactList() {
                      contacts.splice(contacts[i], 1);
                 }
             }
-
         },
+        
         // returns a String formated with all the full-names separated with a line-break
         printAllContactNames: function(){
          //string to store concatenated names
@@ -98,12 +98,12 @@ function makeContactList() {
              //add string to itself and '.' + objects firstname ' ' lastname looping through our array of objects
              string += '.' + contacts[i].nameFirst + ' ' + contacts[i].nameLast;  
          }              
-              //Replace all '.' in string with line break
-              allNames = string.split('.').join('\n');
-                //return first name ' ' last name each on own line and remove the first line break     
-                return allNames.slice(1);
-        }    
-    }
+         //Replace all '.' in string with line break
+         allNames = string.split('.').join('\n');
+           //return first name ' ' last name each on own line and remove the first line break     
+           return allNames.slice(1);
+   }    
+}
 }
 
 
