@@ -9,9 +9,9 @@
 1) in terminal, type => code ~/.bashrc
 2) On line 4 of bashrc file, type => export CHE_PROJECTS_ROOT=/workspace
 3) Exit basrc file
-4) Kill terminal
-5) Reopen terminal
-6) in terminal, type => sudo apt-get install subversion
+## 4) Kill terminal
+## 5) Reopen terminal
+## 6) in terminal, type => sudo apt-get install subversion
 7) in terminal, type => npm install -g opspark
 8) in terminal, type => os install
 ## How to turn assignments in n turn the red green
