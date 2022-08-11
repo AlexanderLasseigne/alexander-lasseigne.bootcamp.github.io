@@ -87,7 +87,7 @@ friends = [];
   return Math.floor(Math.random() * animals.length);
 }
 
-var rando = getRandom(animal);
+var rambo = getRandom(animal);
 friends.push();
 console.log(friends);
 animals[0].friends = friends

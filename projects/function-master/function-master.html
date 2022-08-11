@@ -28,37 +28,7 @@
       assert.deepEqual(objectValues(objectTwo), ["three","four","ponies","dingle"]);
     });
 
-    /* global keysToString */
-    QUnit.test("keysToString() : Should take an object and return all its keys in a string each separated with a space", function(assert){
-      var objectOne = {a: "one", b: "two", ponies: "crayons", dingle: "dangle"};
-      var objectTwo = {c: "three", d: "four", crayons: "ponies", dangle: "dingle"};
-      assert.equal(keysToString(objectOne), "a b ponies dingle");
-      assert.equal(keysToString(objectTwo), "c d crayons dangle");
-    });
-
-    /* global valuesToString */
-    QUnit.test("valuesToString() : Should take an object and return all its string values in a string each separated with a space", function(assert){
-      var objectOne = {a: "one", b: "two", ponies: "crayons", something: {}, dingle: "dangle"};
-      var objectTwo = {c: "three", boolean: false, d: "four", crayons: "ponies", dangle: "dingle"};
-      assert.equal(valuesToString(objectOne), "one two crayons dangle");
-      assert.equal(valuesToString(objectTwo), "three four ponies dingle");
-    });
-
-    /* global arrayOrObject  */
-    QUnit.test("arrayOrObject() : Should take one argument and return 'array' if its an array and 'object' if its an object", function(assert){
-      assert.equal(arrayOrObject({a:"one"}), "object");
-      assert.equal(arrayOrObject([1,2,{}]), "array");
-    });
-
-    /* global capitalizeWord*/
-    QUnit.test("capitalizeWord() : Should take a string of one word, and return the word with its first letter capitalized", function(assert){
-      assert.equal(capitalizeWord("greg"), "Greg");
-      assert.equal(capitalizeWord("pumpkin"), "Pumpkin");
-      assert.equal(capitalizeWord("quattuordecillion"), "Quattuordecillion");
-    });
-
-    /* global  capitalizeAllWords*/
-    QUnit.test("capitalizeAllWords() : Should take a string of words and return a string with all the words capitalized ", function(assert){
+…    QUnit.test("capitalizeAllWords() : Should take a string of words and return a string with all the words capitalized ", function(assert){
       assert.equal(capitalizeAllWords("one two three four"), "One Two Three Four");
       assert.equal(capitalizeAllWords("please excuse my dear aunt sally"), "Please Excuse My Dear Aunt Sally");
     });
