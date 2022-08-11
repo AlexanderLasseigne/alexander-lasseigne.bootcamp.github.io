@@ -3,15 +3,27 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
-
+    var arr = [];
+      for (var keys in object){
+        arr.push(object[keys]);
+      }
+    return arr;
 } 
 
 //////////////////////////////////////////////////////////////////////
 // Function 2 - Keys to String ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function keysToString(object) {
+function keysToString(object) {//why not use += to add to string?
+    let outputArray = [];
 
+for (var key in object) {
+outputArray.push(key)
+}
+
+let returnArray = outputArray.join(' ');
+
+return returnArray;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,7 +31,11 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+    let string = '';
+    for (let key in object){
+        string += (object[key]) + ' ';
+    }
+    return string;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -27,7 +43,11 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+    if (typeof(collection) === array){
+        return 'array';
+    } else if (typeof(collection) === object && object !== null){
+        return 'object';
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
