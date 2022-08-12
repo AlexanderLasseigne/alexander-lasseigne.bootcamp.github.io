@@ -56,6 +56,17 @@ return animals;
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+function add(animals, animal){
+  for (let i = 0; i < animals.length; i++){
+    if (animals[i].name === animal.name){
+      return animals;
+    } 
+  }
+  if (animal.name.length > 0 && animal.species.length > 0){
+    animals.push(animal);
+    return animals;
+  }
+}
 
 
 /**
