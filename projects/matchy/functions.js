@@ -12,16 +12,17 @@
 //////////////////////////////////////////////////////////////////////
 // Step 1 - Search ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-function search(arr, name){
-    for (var i = 0; i <= arr.length - 1; i++){
-        if (arr[i].name === name){
-            return arr[i];
-        } else {
-            return null;
-        } 
+function search(animals, name){
+    let obj;
+    for (let i = 0; i <= animals.length - 1; i++){
+    obj = animals[i];
+      if (obj.name === name){ 
+        return obj;//output = obj;           
+      }   
     }
-   
+return null;
 }
+
 
 
 //////////////////////////////////////////////////////////////////////

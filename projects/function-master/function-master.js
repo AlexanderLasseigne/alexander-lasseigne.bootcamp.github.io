@@ -31,10 +31,13 @@ return returnArray;
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    let string = '';
+    var string = '';
     for (let key in object){
-        string += (object[key]) + ' ';
-    }
+        if (typeof(object[key]) === string){
+            string += (object[key]) + ' ';
+            console.log(string);
+        }
+    }   
     return string;
 }
 
@@ -43,9 +46,10 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    if (typeof(collection) === array){
+    
+    if (typeof collection === 'array'){
         return 'array';
-    } else if (typeof(collection) === object && object !== null){
+    } else if (typeof collection === object){ //&& object !== null){
         return 'object';
     }
 }
@@ -55,7 +59,7 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+
 }
 
 //////////////////////////////////////////////////////////////////////
