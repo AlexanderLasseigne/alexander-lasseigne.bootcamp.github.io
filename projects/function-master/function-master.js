@@ -31,14 +31,16 @@ return returnArray;
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    var string = '';
+    var string = [];
+    var output = '';
     for (let key in object){
-        if (typeof(object[key]) === string){
-            string += (object[key]) + ' ';
-            console.log(string);
+        if (typeof object[key] === 'string'){
+            string.push(object[key]);
         }
-    }   
-    return string;
+    } 
+    output = string.join(' ');
+    //string = string.length
+    return output;
 }
 
 //////////////////////////////////////////////////////////////////////
