@@ -4,9 +4,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 //prints 1 - 7 pound signs on new lines forming a triangle in console
-function triangles() {
+function triangles(num) {
   var pound = '#'; //declare var pound to update count of pounds printed
-    for (var i = 1; i <= 7; i++){  
+    for (var i = 1; i <= num; i++){  
       console.log(pound);
       pound += '#'; 
 }
@@ -38,16 +38,23 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function chess(size){
-  let p = '#';
-  let board = p;
-
-  for (var i = 1; i <= size; i += 1){
-    console.log(board);
-    
+//Function takes in an integer for a parameter
+function drawChessboard(size){
+var board = ''; //string for building each row by adding a '#', ' ', or '\n'
+  for (let x = 0; x < size; x++){ //outer loop 'x' runs innerloop 'y' to completion then adds new line 
+    for (let y = 0; y < size; y++){ //inner loop 'y' makes each string of '#' and ' '
+      if ((x + y) % 2 === 0){ //alternates even & odd and adds characters based on this
+        board += (' '); //statement starts even so prints ' '       
+      }   
+      else {
+        board += ('#'); //next iteration alternates so '#' prints
+      }            
+    }
+    board += '\n'; // adds new line break once inner loop is run
   }
-}  
-chess(8);
+  console.log(board); //logs entire board with alternating ' ', '#', '\n'
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
