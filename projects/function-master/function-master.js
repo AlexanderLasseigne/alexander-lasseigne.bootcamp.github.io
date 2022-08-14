@@ -16,14 +16,11 @@ function objectValues(object) {
 
 function keysToString(object) {//why not use += to add to string?
     let outputArray = [];
-
-for (var key in object) {
-outputArray.push(key)
+    for (var key in object) {
+        outputArray.push(key)
 }
-
-let returnArray = outputArray.join(' ');
-
-return returnArray;
+    let returnArray = outputArray.join(' ');
+    return returnArray;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -39,7 +36,6 @@ function valuesToString(object) {
         }
     } 
     output = string.join(' ');
-    //string = string.length
     return output;
 }
 
@@ -48,11 +44,12 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
-    if (typeof collection === 'array'){
+    if (Array.isArray(collection) === true){
         return 'array';
-    } else if (typeof collection === object){ //&& object !== null){
+    } else if (typeof collection !== null && typeof collection === 'object'){
         return 'object';
+    } else {
+        return null;
     }
 }
 
@@ -61,7 +58,11 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-
+    var arr = string.split('');
+    var first = arr.shift();
+      first = (first.toUpperCase());
+        arr.unshift(first);
+        return arr.join('');
 }
 
 //////////////////////////////////////////////////////////////////////
