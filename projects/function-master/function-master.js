@@ -70,16 +70,33 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
-}
+    let allup = string.toUpperCase();
+    console.log('String. All Uppercase. ???:  ' + allup);
+    return allup;
+    }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
-}
+    
+    let string = object.name
+    console.log(string);
+      let arr = string.split('');
+    console.log(arr);
+      let first = arr.splice(0, 1).join();
+    console.log('after arr.splice().join:  ' + first);
+      let cap = first.toUpperCase();
+    console.log(cap);
+    console.log('typeof cap:  ' + typeof cap);
+    cap = cap.split();
+    console.log('is arr an array?:  ' + Array.isArray(arr));
+          (arr.unshift(cap));
+          arr = arr.join('');
+              return ('Welcome ' + arr + '!');
+} 
 
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
