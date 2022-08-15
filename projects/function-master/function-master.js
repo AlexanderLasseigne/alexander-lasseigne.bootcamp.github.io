@@ -70,9 +70,7 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    let allup = string.toUpperCase();
-    console.log('String. All Uppercase. ???:  ' + allup);
-    return allup;
+   return string.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
     }
 
 
@@ -81,21 +79,9 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-    
-    let string = object.name
-    console.log(string);
-      let arr = string.split('');
-    console.log(arr);
-      let first = arr.splice(0, 1).join();
-    console.log('after arr.splice().join:  ' + first);
-      let cap = first.toUpperCase();
-    console.log(cap);
-    console.log('typeof cap:  ' + typeof cap);
-    cap = cap.split();
-    console.log('is arr an array?:  ' + Array.isArray(arr));
-          (arr.unshift(cap));
-          arr = arr.join('');
-              return ('Welcome ' + arr + '!');
+let string = object.name;
+
+return ('Welcome ' + string.charAt(0).toUpperCase() + string.slice(1) + '!');
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -103,15 +89,25 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+    let string1 = object.name;
+    let string2 = object.species;
+        return string1.charAt(0).toUpperCase() + string1.slice(1) + ' is a ' + string2.charAt(0).toUpperCase() + string2.slice(1);
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function maybeNoises(object) {
-
+function maybeNoises(object){
+    if(object.noises){
+        if(object.noises.length !== 0){
+         return object.noises.join(" ");
+            }else{
+         return "there are no noises";
+            } 
+            }else{
+         return "there are no noises";
+            }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -119,7 +115,11 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+    if (string.includes(word)){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -127,23 +127,39 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+    object.friends.push(name);
+        return object;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//bottom else for top if
 function isFriend(name, object) {
-
+    if(object.friends){
+        if(object.friends.includes(name)){
+            return true;
+        } else{
+            return false;
+        }
+    } else{
+        return false;
+    }
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+    let list = [];
+    for (let i = 0; i < array.length; i++){
+        if (name !== array[i].name && array[i].friends.indexOf(name) === -1){
+            list.push(array[i].name);
+        }
+    }
+    return list;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -151,7 +167,16 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+    for (let i in object){
+        if (i = key){
+            if (object.i !== value){
+                object[i] = value;
+                    return object;
+            }
+        }
+    }
+    object.key = value;
+        return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -159,7 +184,14 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+    for (let key in object){
+        for (i = 0; i < array.length; i++){
+            if (key = array[i]){
+                delete object[key];
+            }
+        }
+    }
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -167,7 +199,9 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    return array.sort().filter(function(item, pos, ary) {
+        return !pos || item != ary[pos - 1];
+    });
 }
 
 //////////////////////////////////////////////////////////////////////
