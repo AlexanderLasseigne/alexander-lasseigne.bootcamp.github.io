@@ -49,14 +49,23 @@ _.identity = function(value){
 
 //.typeOf takes in any value and returns the type
 
-/*
 _.typeOf = function(value){
-    let type = '';
-    if (typeof(value) == 'string' &&)
+    let type = typeof(value);
+    let output = '';
+    switch(type){
+        case 1: 'string';
+            return 'string';
+            break;
+        case 2: 'object';
+            if (Array.isArray == 'array'){
+                return 'array'
+            }
+            
+    }
 
 }
 
-*//************************************************* */
+
 
 /** _.first
 * Arguments:
