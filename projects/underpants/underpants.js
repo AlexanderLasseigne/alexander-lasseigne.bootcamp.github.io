@@ -2,7 +2,6 @@
 // other things. For more info:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
-
 var _ = {};
 
 
@@ -49,10 +48,32 @@ _.identity = function(value){
 
 //.typeOf takes in any value and returns the type
 
-_.typeOf = function(value){
-    
+_.typeOf = function(value){ 
+    if (typeof value === 'string'){
+        return 'string';
+    } if (value === true || value === false){
+        return 'boolean';
+    } if (Array.isArray(value)){        
+        return 'array';
+    } if (value === undefined){
+        return 'undefined';      
+    } if (value === null){
+        return 'null';
+    } if (!isNaN(value)){
+        return 'number'
+    } if (typeof value === 'function'){
+        return 'function';
+    } if (typeof value === 'object'){
+    return 'object';
+    }
+} 
+   
+/*-------------------------------------------------------
+ 
+    // trying to use a switch but abbandonned b/c time    
+    let type = typeof value;
     let output = '';
-    switch(typeof value){
+    switch(type){
         case 'string':
             return 'string';
             break;
@@ -80,6 +101,7 @@ _.typeOf = function(value){
     }
 }
 
+*/
 
 /** _.first
 * Arguments:
@@ -104,11 +126,12 @@ _.first = function(arr, num){
         //IF array is not an array return []
         if (!Array.isArray(arr)){//=== false){
             return [];
-        } else if (num !== undefined && num !== NaN){
+        } else if (!num){
             return arr[0];
         } 
-    return arr.splice(0, num);
+        return arr.splice(0, num);
 }
+//
 
 /** _.last
 * Arguments:
