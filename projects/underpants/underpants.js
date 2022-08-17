@@ -50,21 +50,35 @@ _.identity = function(value){
 //.typeOf takes in any value and returns the type
 
 _.typeOf = function(value){
-    let type = typeof(value);
+    
     let output = '';
-    switch(type){
-        case 1: 'string';
+    switch(typeof value){
+        case 'string':
             return 'string';
             break;
-        case 2: 'object';
-            if (Array.isArray == 'array'){
-                return 'array'
+          
+            break;
+        case 'undefined':
+            return 'undefined';
+            break;
+        case 'number':
+            return 'number';
+            break;
+        case 'boolean':
+            return 'boolean';
+            break;
+        case 'null':
+            return 'null';
+            break;
+        case 'function':
+            return 'function';
+            break;
+        case 'object':
+            if (Array.isArray(value)){      
+                return 'array';
             }
-            
     }
-
 }
-
 
 
 /** _.first
