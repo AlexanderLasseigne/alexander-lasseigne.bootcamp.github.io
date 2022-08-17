@@ -240,7 +240,8 @@ _.each = function(collection, func){
 *       0) An array that contains all the values for which <function> returned something truthy
 *       1) An array that contains all the values for which <function> returned something falsy
 * Edge Cases:
-*   1) This is going to return an array of arrays.
+*   1) This is going to return an array of arrays.to do something and get a specific result, without having to write that code at everyplace in our program that we need to use it.
+
 * Examples:
 *   _.partition([1,2,3,4,5], function(element,index,arr){
 *     return element % 2 === 0;
@@ -324,6 +325,48 @@ if (Array.isArray(collection)){
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function(collection, func){
+   
+    // determine if func was not passed a value
+    if (!func){  // so true if 
+        // determine if array
+        if (Array.isArray(collection)){
+            // if true then iterate
+            for (let i = 0; i < collection.length; i++){
+                // determine if current value is truthy
+                if (!collection[i]){
+                    return false;
+                }
+            }
+        }
+        else {  // else func was passed an object?
+            for (let key in collection){
+                if (!collection[key]){
+                    return false;
+                }
+            }
+        }        
+    }
+    else { //else func WAS passed a value
+        if (Array.isArray(collection)){ //determine if array
+            // if true then iterate
+            for (let i = 0; i < collection.length; i++){
+                // determine if current value returns false when passed into the function
+                if (!collection[i]){
+                    return false;
+                }
+            }
+        }
+        else {  // else func was passed an object?
+            for (let key in collection){
+                if (!collection[key]){
+                    return false;
+                }
+            }
+        }        
+    }
+return true;
+}
 
 /** _.some
 * Arguments:
