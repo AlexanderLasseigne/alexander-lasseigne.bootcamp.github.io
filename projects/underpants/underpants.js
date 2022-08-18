@@ -209,6 +209,15 @@ _.indexOf = function(arr, val){
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+_.contains = function(arr, value){
+    for (var i = 0; i < arr.length; i++){
+        //console.log((!value));
+        return (!value) === true && arr[i] === value
+            ?truesa
+            :false; 
+    } 
+
+}
 
 /** _.each
 * Arguments:
