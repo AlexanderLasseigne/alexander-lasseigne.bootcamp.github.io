@@ -2,6 +2,7 @@
 // other things. For more info:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
+
 var _ = {};
 
 
@@ -209,15 +210,18 @@ _.indexOf = function(arr, val){
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+/*
 _.contains = function(arr, value){
     for (var i = 0; i < arr.length; i++){
         //console.log((!value));
         return (!value) === true && arr[i] === value
-            ?truesa
+            ?true
             :false; 
     } 
 
 }
+*/
+
 
 /** _.each
 * Arguments:
@@ -382,6 +386,7 @@ if (Array.isArray(collection)){
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+
 _.every = function(collection, func){
    
     // determine if func was not passed a value
@@ -466,6 +471,25 @@ return true;
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+/*
+_.reduce = function(array, func, seed){
+    //determine if seed is not defined
+    if (seed !== undefined){ //
+        result = seed;
+        //iterate
+        for (let i = 0)
+            result = func(result, array[i], i, array); 
+    } else { // else seed is undefined
+        result = array[0]; //assign result first val in array
+        for (let i = 1){
+            result = func(result, array[i], i, array);
+        }
+    }
+    return result;
+}
+*/
+
+//var output = nums.reduce
 
 /** _.extend
 * Arguments:

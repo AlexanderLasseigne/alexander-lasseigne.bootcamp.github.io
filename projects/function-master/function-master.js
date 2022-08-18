@@ -2,74 +2,81 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//$func takes in an object
 function objectValues(object) {
-    var arr = [];
-      for (var keys in object){
-        arr.push(object[keys]);
+    var arr = []; //declare an arr to update and return
+      for (var keys in object){ //iterate over object to access each keys' value
+        arr.push(object[keys]); //.push each value into back of arr
       }
-    return arr;
+    return arr; // return arr
 } 
 
 //////////////////////////////////////////////////////////////////////
 // Function 2 - Keys to String ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function keysToString(object) {//why not use += to add to string?
-    let outputArray = [];
-    for (var key in object) {
-        outputArray.push(key)
+function keysToString(object) { //$funtion takes in an object
+    let outputArray = []; //empty arry declared as empty array to collect values
+    for (var key in object) { //loop over object for every key 
+        outputArray.push(key) //push each key into outputArray
 }
-    let returnArray = outputArray.join(' ');
-    return returnArray;
+    //let returnArray = 
+    return outputArray.join(' '); //join all strings pushed into $out
+    //seperated with spaces
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 3 - Values to String /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function valuesToString(object) {
-    var string = [];
-    var output = '';
-    for (let key in object){
-        if (typeof object[key] === 'string'){
+function valuesToString(object) { //$function takes in an object
+    var string = []; // string to push vals into and return
+    for (let key in object){ //itt over object 
+        if (typeof object[key] === 'string'){ //and IF each object is
+            // a string, .push into our string var
             string.push(object[key]);
         }
     } 
-    output = string.join(' ');
-    return output;
+    return string.join(' '); // join all .pushed strings into one string w/ spaces
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function arrayOrObject(collection) {
-    if (Array.isArray(collection) === true){
+function arrayOrObject(collection) { //$function takes in one argument
+    if (Array.isArray(collection) === true){  // tests if passed in element
+        //is an array and return 'array' if true
         return 'array';
-    } else if (typeof collection !== null && typeof collection === 'object'){
-        return 'object';
-    } else {
-        return null;
-    }
+      // if NOT array test if collection is considered an 'object' with 
+      ///typeof AND that collection is not null 
+    } else if (typeof collection !== null && typeof collection === 'object'){ 
+        return 'object'; // if both cases are true return 'object'
+    }// else {
+        //return null; //otherwise return null 
+    //}
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 5 - Capitalize Word //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function capitalizeWord(string) {
-    var arr = string.split('');
-    var first = arr.shift();
-      first = (first.toUpperCase());
-        arr.unshift(first);
-        return arr.join('');
-}
+function capitalizeWord(string) { //$function takes in a string
+    var arr = string.split(''); // split string parameter and assign 
+    //result to arr of an array made up of strings containing each letter
+    // of the string parameter
+    var first = arr.shift(); // ititiate first var to value of first letter
+    // after removing it from string
+      first = (first.toUpperCase()); // reassign first to capital of itself
+        arr.unshift(first); // insert first into front of array
+        return arr.join(''); // join array of string letters into one string
+}       //and return
 
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function capitalizeAllWords(string) {
+function capitalizeAllWords(string) { //$function takes in a string
    return string.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
     }
 
@@ -78,7 +85,7 @@ function capitalizeAllWords(string) {
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function welcomeMessage(object) {
+function welcomeMessage(object) { // //$function takes in object
 let string = object.name;
 
 return ('Welcome ' + string.charAt(0).toUpperCase() + string.slice(1) + '!');
@@ -88,7 +95,7 @@ return ('Welcome ' + string.charAt(0).toUpperCase() + string.slice(1) + '!');
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function profileInfo(object) {
+function profileInfo(object) { //$function takes in object
     let string1 = object.name;
     let string2 = object.species;
         return string1.charAt(0).toUpperCase() + string1.slice(1) + ' is a ' + string2.charAt(0).toUpperCase() + string2.slice(1);
@@ -98,7 +105,7 @@ function profileInfo(object) {
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function maybeNoises(object){
+function maybeNoises(object){ //$function takes in object
     if(object.noises){
         if(object.noises.length !== 0){
          return object.noises.join(" ");
@@ -114,7 +121,7 @@ function maybeNoises(object){
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function hasWord(string, word) {
+function hasWord(string, word) { //$function takes in a string of words and a word
     if (string.includes(word)){
         return true;
     } else {
@@ -126,7 +133,7 @@ function hasWord(string, word) {
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function addFriend (name, object) {
+function addFriend (name, object) { //$function takes in a name string and an object
     object.friends.push(name);
         return object;
 }
@@ -135,7 +142,7 @@ function addFriend (name, object) {
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //bottom else for top if
-function isFriend(name, object) {
+function isFriend(name, object) { //$function takes in a name string and an object
     if(object.friends){
         if(object.friends.includes(name)){
             return true;
@@ -152,7 +159,7 @@ function isFriend(name, object) {
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function nonFriends(name, array) {
+function nonFriends(name, array) { //$function takes in a name string and an array
     let list = [];
     for (let i = 0; i < array.length; i++){
         if (name !== array[i].name && array[i].friends.indexOf(name) === -1){
@@ -166,7 +173,7 @@ function nonFriends(name, array) {
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function updateObject(object, key, value) {
+function updateObject(object, key, value) { //$function takes in object, key, and value
     for (let i in object){
         if (i = key){
             if (object.i !== value){
@@ -183,8 +190,8 @@ function updateObject(object, key, value) {
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function removeProperties(object, array) {
-    for (let key in object){
+function removeProperties(object, array) { //$function takes in object, and array
+    for (let key in object){ 
         for (i = 0; i < array.length; i++){
             if (key = array[i]){
                 delete object[key];
@@ -198,7 +205,7 @@ function removeProperties(object, array) {
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function dedup(array) {
+function dedup(array) { //$function takes in array
     return array.sort().filter(function(item, pos, ary) {
         return !pos || item != ary[pos - 1];
     });
