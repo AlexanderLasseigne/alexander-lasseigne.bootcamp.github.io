@@ -122,16 +122,16 @@ _.typeOf = function(value){
 */
 
 //.first takes in array and number and 
-_.first = function(arr, num){
+_.first = function(arr, num){ 
         //IF array is not an array return []
-        if (!Array.isArray(arr)){//=== false){
+        if (!Array.isArray(arr)){ 
             return [];
-        } else if (!num){
+        } else if (!num){ //if no num given as argument return first element
             return arr[0];
         } 
-        return arr.splice(0, num);
+        return arr.splice(0, num); // else return first num of elements
 }
-//
+// ___________________________
 
 /** _.last
 * Arguments:
@@ -151,6 +151,22 @@ _.first = function(arr, num){
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function(arr, num){
+    //test for neg num &&
+    //IF array is not an array return []
+    if (!Array.isArray(arr) || num <= 0){
+        return [];
+    } if (num > arr.length){
+        return arr;
+    }
+      if (!num || num > arr.length){
+        return arr[arr.length - 1];
+    } if (num >= 0){
+    return arr.slice(-num);
+    }
+    //arr.splice(arr.length - num, num);    
+
+}
 
 /** _.indexOf
 * Arguments:
@@ -168,6 +184,15 @@ _.first = function(arr, num){
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function(arr, val){
+    var output;
+    for (let i = 0; i < arr.length; i++){
+        if (val === arr[i]){
+            return i;
+        }       
+    }
+    return -1;
+}
 
 /** _.contains
 * Arguments:
