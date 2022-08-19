@@ -190,15 +190,16 @@ function nonFriends(name, array) { //$function takes in a name string and an arr
 
 function updateObject(object, key, value) { //$function takes in object, key, and value
     for (let i in object){ //iterate object keys
-        if (i = key){
-            if (object.i !== value){
-                object[i] = value;
-                    return object;
+        if (i = key){ //if current key in object matches key passed in...
+            if (object.i !== value){ //test if value passed in is NOT a key in object
+                object[i] = value; // assign value to current key
+                    return object; //return object stopping loop
             }
         }
     }
-    object.key = value;
-        return object;
+    object.key = value; //create key given in object if object does not contain it
+    //and assign the value that was given
+        return object; //return modified obj
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -206,13 +207,15 @@ function updateObject(object, key, value) { //$function takes in object, key, an
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) { //$function takes in object, and array
-    for (let key in object){ 
-        for (i = 0; i < array.length; i++){
-            if (key = array[i]){
-                delete object[key];
+    for (let key in object){ //itterate over all keys in object
+        for (i = 0; i < array.length; i++){ //itterate over all items in array
+            if (key = array[i]){ // if current key is current array item then
+                delete object[key]; //delete that current objects key
             }
-        }
-    }
+        }//once done checking all items in list for matches and deleting,
+        //return to outside for loop to iterate to next key in object and check it 
+        //against each item in array
+    }//once all keys tested return modified object
     return object;
 }
 
@@ -221,10 +224,29 @@ function removeProperties(object, array) { //$function takes in object, and arra
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) { //$function takes in array
-    return array.sort().filter(function(item, pos, ary) {
-        return !pos || item != ary[pos - 1];
-    });
+//returns an array with all duplicates removed
+    // hold var arr to build new array with no duplicates
+    var hold = [];
+    hold.push(array[0]);
+    for (let i = 0; i <= hold.length - 1; i++){
+        for (let x = 1; x <= array.length - 1; x++){
+            if (array[i] !== hold[x]){
+                hold.push(array[i]);                
+            } else {
+                delete array[i];
+            }
+        }    
+    }
+    console.log(hold);
+    return hold;
 }
+
+
+
+
+ /*
+    });
+*/
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
