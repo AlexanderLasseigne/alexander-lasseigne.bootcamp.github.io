@@ -127,7 +127,7 @@ function maybeNoises(object){ //$function takes in object
          return "there are no noises"; // if fails inside loop test return this
             } 
         }else{
-            return "there are no noises"; // if fails 
+            return "there are no noises"; // if fails outer loop test return this
             }
 }
 
@@ -136,11 +136,9 @@ function maybeNoises(object){ //$function takes in object
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) { //$function takes in a string of words and a word
-    if (string.includes(word)){
-        return true;
-    } else {
-        return false;
-    }
+    return (string.includes(word)) //used .includes to simply check,
+    //return the returned true or false from .includes if string pased in matches word passed in.
+ 
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -148,8 +146,8 @@ function hasWord(string, word) { //$function takes in a string of words and a wo
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) { //$function takes in a name string and an object
-    object.friends.push(name);
-        return object;
+    object.friends.push(name); //adds the passed in name to the objects friends array
+        return object; //returns the modified object
 }
 
 //////////////////////////////////////////////////////////////////////
