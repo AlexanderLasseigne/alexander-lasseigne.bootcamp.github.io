@@ -77,17 +77,29 @@ function capitalizeWord(string) { //$function takes in a string
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) { //$function takes in a string
-   return string.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+    //and return a string with all the words capitalized
+    var output = string.split(' '); //spits string into array of strings of words
+                                    //seperated @ spaces
+    var capd = []; // var array to hold our cpaitalized words
+        for (i = 0; i < output.length; i++){ //iterate over output array
+            capd.push(capitalizeWord(output[i])); //capitalize first 
+            //letter of each word and push into our capd var
+        }
+        return (capd.join(' ')); // return our joined strings as one string
+        //of words with first letter capped.
     }
 
+//return string.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) { // //$function takes in object
-let string = object.name;
-
+let string = object.name; // access name property value. assign to string.
+    //logs 'Welcome ' then first letter capitalized, then rest of name, then exclamation
+    //string.charAt(0).toUpperCase() takes first letter and caps and logs it in msg.
+    //string.slice(1) accessess the rest of name and logs it. then just '!'
 return ('Welcome ' + string.charAt(0).toUpperCase() + string.slice(1) + '!');
 } 
 
@@ -96,8 +108,10 @@ return ('Welcome ' + string.charAt(0).toUpperCase() + string.slice(1) + '!');
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) { //$function takes in object
-    let string1 = object.name;
-    let string2 = object.species;
+    let string1 = object.name; //assigns name value in taken object to string 1
+    let string2 = object.species;// " species ""
+        //capitalizes and logs first letter in name
+        //+ rest of name + ' is a ' + capitalized first letter in species + remaining species string
         return string1.charAt(0).toUpperCase() + string1.slice(1) + ' is a ' + string2.charAt(0).toUpperCase() + string2.slice(1);
 }
 
@@ -106,14 +120,14 @@ function profileInfo(object) { //$function takes in object
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object){ //$function takes in object
-    if(object.noises){
-        if(object.noises.length !== 0){
-         return object.noises.join(" ");
+    if(object.noises){ //tests an object has a noises property array
+        if(object.noises.length !== 0){ //tests array is not empty if there
+         return object.noises.join(" "); // if it passes returns as string w/ spaces
             }else{
-         return "there are no noises";
+         return "there are no noises"; // if fails inside loop test return this
             } 
-            }else{
-         return "there are no noises";
+        }else{
+            return "there are no noises"; // if fails 
             }
 }
 
