@@ -173,13 +173,15 @@ function isFriend(name, object) { //$function takes in a name string and an obje
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) { //$function takes in a name string and an array
-    let list = [];
-    for (let i = 0; i < array.length; i++){
+    let list = []; //initialize list as empty array to hold and return list of non-friends
+    for (let i = 0; i < array.length; i++){ //itterate over array
+        //if current array index objects name value does NOT match name && current value 
+        // -objects friends value does not contain name passed in- 
         if (name !== array[i].name && array[i].friends.indexOf(name) === -1){
-            list.push(array[i].name);
+            list.push(array[i].name); //then push current opjects name prop value to list
         }
     }
-    return list;
+    return list; //return built list
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -187,7 +189,7 @@ function nonFriends(name, array) { //$function takes in a name string and an arr
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) { //$function takes in object, key, and value
-    for (let i in object){
+    for (let i in object){ //iterate object keys
         if (i = key){
             if (object.i !== value){
                 object[i] = value;
