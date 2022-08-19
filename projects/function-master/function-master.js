@@ -155,14 +155,15 @@ function addFriend (name, object) { //$function takes in a name string and an ob
 //////////////////////////////////////////////////////////////////////
 //bottom else for top if
 function isFriend(name, object) { //$function takes in a name string and an object
-    if(object.friends){
-        if(object.friends.includes(name)){
+    if(object.friends){ //test friends property exists in object
+        if(object.friends.includes(name)){ //tests if name exists in objects 
+            //friend array and returns true if so
             return true;
         } else{
-            return false;
+            return false; //returns false if not contained
         }
     } else{
-        return false;
+        return false; //returns false if friends array does not exist in object
     }
 }
 
