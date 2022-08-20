@@ -225,28 +225,16 @@ function removeProperties(object, array) { //$function takes in object, and arra
 
 function dedup(array) { //$function takes in array
 //returns an array with all duplicates removed
-    // hold var arr to build new array with no duplicates
-    var hold = [];
-    hold.push(array[0]);
-    for (let i = 0; i <= hold.length - 1; i++){
-        for (let x = 1; x <= array.length - 1; x++){
-            if (array[i] !== hold[x]){
-                hold.push(array[i]);                
-            } else {
-                delete array[i];
-            }
-        }    
+    var outputarr = [];
+    for(i=0; i<array.length; i++){
+        if(outputarr.indexOf(array[i]) === -1){
+            outputarr.push(array[i]);
+        }
     }
-    console.log(hold);
-    return hold;
+    return outputarr;
 }
 
 
-
-
- /*
-    });
-*/
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
@@ -272,3 +260,25 @@ if((typeof process !== 'undefined') &&
     module.exports.removeProperties = removeProperties;
     module.exports.dedup = dedup;
 }
+
+/*
+var output = [];
+    var hold = array[0];
+    console.log(hold);
+    for (let i = 0; i < array.length; i++){
+    
+            if (hold !== array[i]){
+               output.push(hold);                
+            } 
+            
+    } //console.log(array)
+    output.unshift(hold);
+    console.log(output);
+    return output;
+
+
+// returns a new array of filtered items run through the function index 
+    // that 
+    return array.filter((item, index) => array.indexOf(item) === index);
+
+    */
