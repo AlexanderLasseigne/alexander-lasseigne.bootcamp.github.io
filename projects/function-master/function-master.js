@@ -225,13 +225,16 @@ function removeProperties(object, array) { //$function takes in object, and arra
 
 function dedup(array) { //$function takes in array
 //returns an array with all duplicates removed
-    var outputarr = [];
-    for(i=0; i<array.length; i++){
-        if(outputarr.indexOf(array[i]) === -1){
+    var outputarr = []; //captures pushed elements that pass tests
+    for(i=0; i<array.length; i++){ // iterate over array by 1 each loop
+        if(outputarr.indexOf(array[i]) === -1){ // compares each element 
+            // of array to every element in the outputarr we are building.
+            // if current iteration array element does NOT exist in outputarr
+            // then we push that current ellement into our outputarr.  
             outputarr.push(array[i]);
         }
     }
-    return outputarr;
+    return outputarr; //return it!! phew!!!
 }
 
 
