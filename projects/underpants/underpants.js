@@ -210,18 +210,13 @@ _.indexOf = function(arr, val){
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
-/*
+
 _.contains = function(arr, value){
-    for (var i = 0; i < arr.length; i++){
-        //console.log((!value));
-        return (!value) === true && arr[i] === value
-            ?true
-            :false; 
-    } 
+    return (_.indexOf(arr, value) !== -1) 
+        ? true
+        : false;
 
 }
-*/
-
 
 /** _.each
 * Arguments:
@@ -240,13 +235,14 @@ _.contains = function(arr, value){
 */
 
 /*
-_.each = function(collection, func){
-    if (Array.isArray(collection)){
-        // needs to iterate through collection array
-    
-    }
+
+_.each = function(collection, function){
+    if (Array.isArray(collection)){ //IF 'collection' is and ARRAY then...
+        _.filter(collection, function(element, index, collection));        
+    } if (_.typeOf(collection) === 'object')
 }
- */   
+  
+*/
 
 /** _.unique
 * Arguments:
