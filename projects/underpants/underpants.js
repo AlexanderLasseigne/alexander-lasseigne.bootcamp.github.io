@@ -122,7 +122,7 @@ _.typeOf = function(value){
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
-//.first takes in array and number and 
+//.first takes in array and number 
 _.first = function(arr, num){ 
         //IF array is not an array return []
         if (!Array.isArray(arr)){ 
@@ -234,16 +234,19 @@ _.contains = function(arr, value){
 *      -> should log "a" "b" "c" to the console
 */
 
-/*
-
-_.each = function(collection, function){
+_.each = function(collection, func){
     if (Array.isArray(collection)){ //IF 'collection' is and ARRAY then...
-        _.filter(collection, function(element, index, collection));        
-    } if (_.typeOf(collection) === 'object')
+        for (let i = 0; i < collection.length; i++){
+            func(collection[i], i, collection);
+        } 
+    } else {//if (typeof collection === 'object'){
+
+        for (let key in collection){
+            func(collection[key], key, collection);
+        }
+      }   
 }
   
-*/
-
 /** _.unique
 * Arguments:
 *   1) An array
@@ -254,7 +257,20 @@ _.each = function(collection, function){
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
-
+// Return a new array of all elements from <arr> with duplicates removed
+_.unique = function(arr){
+    var narr = []; // new array to .push() non-duplicate items into
+    for (let i = 0; i < arr.length; i++){ // start iteration through arr
+        // Use indexOf() to check new array for duplicate of each item
+        // -tests for -1 (not duplicate) && .push()'s non duplicates 
+        // into narr
+        if (_.indexOf(narr, arr[i]) === -1){
+            narr.push(arr[i]);
+        }
+    }
+    return narr; //returns narr
+}
+ 
 /** _.filter
 * Arguments:
 *   1) An array
@@ -270,6 +286,7 @@ _.each = function(collection, function){
 * Extra Credit:
 *   use _.each in your implementation
 */
+
 
 
 /** _.reject
