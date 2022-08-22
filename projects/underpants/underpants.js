@@ -392,21 +392,23 @@ _.partition = function(arr, func){
 */
 
 _.map = function(coll, func){
-    var narr = [];
+    var nAarr = [];
+    var nOarr = [];
     // IF coll = ARRAY
-    if (_.typeOf(coll) == 'array'){
+    if (_.typeOf(coll) === 'array'){
         //call function on each item in 'coll' ARRAY passing in.
         //-element, index, coll
         for (let i = 0; i < coll.length; i++){
-        narr.push(func(coll[i], i, coll));
+        nAarr.push(func(coll[i], i, coll));
         }
+        return nAarr
       // IF coll = OBJECT  
-    } if (_.typeOf(coll) == 'object'){
+    } if (_.typeOf(coll) === 'object'){
         for (let key in coll){
-        narr.push(func(coll[key], key, coll))
+        nOarr.push(func(coll[key], key, coll))
         }
       }
-    return narr;
+    return nOarr;
 }
 
 /** _.pluck
@@ -422,12 +424,11 @@ _.map = function(coll, func){
 
 
 _.pluck = function(arrObj, prop){
-    //for (let i = 0; i < arrObj; i++){
-        _.map(arrObj, function(key)){
-            return arrObj[]
-        }     
-    
-    return   
+    for (let i = 0; i < arrObj.length; i++){
+        _.map(arrObj[i], function(){
+            
+        });
+      
     
 }
 
