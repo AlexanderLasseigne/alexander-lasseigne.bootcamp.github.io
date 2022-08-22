@@ -287,7 +287,20 @@ _.unique = function(arr){
 *   use _.each in your implementation
 */
 
-
+// filter() Function takes in an array and a function. Passes each element in
+// array through provided function. paramater function takes in parameters, 
+// the element, it's index, and the array from filter(). 
+// The Annon function .push()'s 'true' results into a new array 
+// and returns it.
+_.filter = function(arr, func){
+    let narr = [];
+    for (let i = 0; i < arr.length; i++){
+        if (func(arr[i], i, arr)){
+            narr.push(arr[i]);
+        }               
+    }
+    return narr;
+}
 
 /** _.reject
 * Arguments:
@@ -302,6 +315,18 @@ _.unique = function(arr){
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
+//reject() Function takes in an array and calls given function on each element
+//annon func takes in arguements, (element, index, and arr).
+//-and IF func results false, .push into new array to return.
+_.reject = function(arr, func){
+    let narr = [];
+    for (let i = 0; i < arr.length; i++){
+        if (!func(arr[i], i, arr)){
+            narr.push(arr[i]);
+        }
+    }
+    return narr;
+}
 
 /** _.partition
 * Arguments:
@@ -323,6 +348,32 @@ _.unique = function(arr){
 }
 */
 
+// partition Func takes array and passes each element through passed in func
+// func has params of element, key, arr. 
+
+//***************************************************
+ // CANNOT GET FALSE TEST TO .PUSH FALSEY VALUES TO FARR
+_.partition = function(arr, func){
+    let narr = [];
+    let tarr = [];
+    let farr = [];
+    for (let i = 0; i < arr.length; i++){
+        for (let key in arr[i]){
+            if (func(arr[i], key, arr)){
+                tarr.push(arr[i][key]);
+            }
+
+                else if (func(arr[i], key, arr)){
+                    farr.push(arr[i][key]);
+                    
+                }    
+            
+        } 
+    } console.log(farr);
+    narr.push(tarr, farr);
+    return narr;
+}
+
 
 /** _.map
 * Arguments:
@@ -340,31 +391,23 @@ _.unique = function(arr){
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
-
-/*
-_.map = function(collection, func){
-    //create output var and initiate as empty arr
-    var output = [];
-
-   //determine if collection is an array
-if (Array.isArray(collection)){
-    // iterate
-    for (let i = 0; i = collection.length; i++){
-        //push result of invoking function 
-        output.push(func(collection[i], i, collection));
-    } else { //else is  an object
-      //iterate
-        for (let key in collection){           
-            output.push(func(collection[key], key, collection));
+_.map = function(coll, func){
+    var narr = [];
+    // IF coll = ARRAY
+    if (_.typeOf(coll) == 'array'){
+        //call function on each item in 'coll' ARRAY passing in.
+        //-element, index, coll
+        for (let i = 0; i < coll.length; i++){
+        narr.push(func(coll[i], i, coll));
+        }
+      // IF coll = OBJECT  
+    } if (_.typeOf(coll) == 'object'){
+        for (let key in coll){
+        narr.push(func(coll[key], key, coll))
         }
       }
-    }  
-
-
+    return narr;
 }
-
-*/
-
 
 /** _.pluck
 * Arguments:
@@ -377,6 +420,27 @@ if (Array.isArray(collection)){
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
+
+_.pluck = function(arrObj, prop){
+    //for (let i = 0; i < arrObj; i++){
+        _.map(arrObj, function(key)){
+            return arrObj[]
+        }     
+    
+    return   
+    
+}
+
+
+/*
+getVal = function(keyName){
+        
+}
+for (let i = 0; i < arrO.length; i++){
+    
+_.map(arrO[i], getVal(prop)
+}
+*/
 
 /** _.every
 * Arguments:
