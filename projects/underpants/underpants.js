@@ -392,23 +392,24 @@ _.partition = function(arr, func){
 */
 
 _.map = function(coll, func){
-    var nAarr = [];
-    var nOarr = [];
+    // initialize output var with emty array
+    var output = [];
+ 
     // IF coll = ARRAY
     if (_.typeOf(coll) === 'array'){
         //call function on each item in 'coll' ARRAY passing in.
         //-element, index, coll
         for (let i = 0; i < coll.length; i++){
-        nAarr.push(func(coll[i], i, coll));
+        output.push(func(coll[i], i, coll));
         }
-        return nAarr
+     
       // IF coll = OBJECT  
-    } if (_.typeOf(coll) === 'object'){
+    } else {_.typeOf(coll) === 'object'  //else its an object
         for (let key in coll){
-        nOarr.push(func(coll[key], key, coll))
+            output.push(func(coll[key], key, coll))
         }
       }
-    return nOarr;
+    return output; //
 }
 
 /** _.pluck
@@ -422,14 +423,13 @@ _.map = function(coll, func){
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
-
+// function takes in an array of objects and a property
 _.pluck = function(arrObj, prop){
-    for (let i = 0; i < arrObj.length; i++){
-        _.map(arrObj[i], function(){
-            
-        });
+
+    return _.map(arrObj, function(e){
+        return e[prop];
+    })
       
-    
 }
 
 
