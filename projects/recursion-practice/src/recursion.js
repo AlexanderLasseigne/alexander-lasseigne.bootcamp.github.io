@@ -6,20 +6,30 @@
 // factorial(5);  // 120
 var factorial = function(n) {
   // base - define a condition that tells function when to stop
-  
+  if (n === 0){
+    return 1;
+  } if (n <= 0){
+    return null;
+  }
   // recursion - what to do when not base case
-  
-  console.log(n)
-  countdown(n - 1);
+  return n * factorial(n - 1);
 }
-
+//**?? Soo.. this shows us that the stack keeps calls waiting (like a queue) to b performed, from the function, until all calls can be resolved?
 
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
 var sum = function(array) {
+  //base
+  if (array.length === 0){
+    return 0; 
+  } 
 
+  //recursion
+  
+  return array[0] + sum(array.slice(1));
 };
 
+// ** Hard Blue SKIP for now
 // 3. Sum all numbers in an array containing nested arrays.
 // Example: arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
@@ -27,14 +37,33 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  //Base
+  if (n === 0){
+    return ;
+  }
+  //recursion
+  if (n){return true}
+    
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
-};
+  //base
+  if (n === 0){
+    return 0;
+  }
+  //recursion
+  if (n > 0){ 
+  return (n - 1) + sumBelow(n - 1);
+  } 
+  if (n < 0){
+    return (n + 1) + sumBelow(n + 1);
+  }
 
+};
+console.log(sumBelow(5));
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
@@ -46,6 +75,10 @@ var range = function(x, y) {
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  //base                2,    4
+
+  //recursion
+  //return base * 
 };
 
 // 8. Determine if a number is a power of two.
@@ -57,6 +90,15 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
+  //base 
+  //default variable
+  var output = [];
+  if (string.length === 0){
+    return;
+  }
+  //recursion 
+  console.log(string);
+  return string[string.length] + reverse(string.slice(1, string.length - 1))
 };
 
 // 10. Write a function that determines if a string is a palindrome.
@@ -74,6 +116,7 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
+//**** must use recursion for these so use 2 + 2 + 2 for 2 * 4
 var multiply = function(x, y) {
 };
 
