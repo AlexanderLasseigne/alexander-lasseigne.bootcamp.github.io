@@ -35,6 +35,8 @@ var youngestCustomer;
 
 var averageBalance;
 
+
+
 var firstLetterCount;
 
 var friendFirstLetterCount;

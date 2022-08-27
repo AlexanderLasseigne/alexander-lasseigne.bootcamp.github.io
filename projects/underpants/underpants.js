@@ -348,30 +348,24 @@ _.reject = function(arr, func){
 }
 */
 
-// partition Func takes array and passes each element through passed in func
-// func has params of element, key, arr. 
 
 //***************************************************
- // CANNOT GET FALSE TEST TO .PUSH FALSEY VALUES TO FARR
-_.partition = function(arr, func){
-    let narr = [];
-    let tarr = [];
-    let farr = [];
-    for (let i = 0; i < arr.length; i++){
-        for (let key in arr[i]){
-            if (func(arr[i], key, arr)){
-                tarr.push(arr[i][key]);
-            }
+ 
+ _.partition = function(arr, func){ // partition Funcion takes an array and a function in
+    var output = []; //  to be our main array to push our 2 partitioned arrays into and return 
+    var arrT = []; // array to push in truthy values
+    var arrF = []; //array to push in false elements
+    //for loop to iterate array and access each element
+    for (let i = 0; i <  arr.length; i++){ 
 
-                else if (func(arr[i], key, arr)){
-                    farr.push(arr[i][key]);
-                    
-                }    
-            
-        } 
-    } console.log(farr);
-    narr.push(tarr, farr);
-    return narr;
+       if (func(arr[i], i, arr)){
+          arrT.push(arr[i]); 
+        } else {
+            arrF.push(arr[i])
+          }         
+    }
+    output.push(arrT, arrF);
+    return output;
 }
 
 
@@ -466,47 +460,40 @@ _.map(arrO[i], getVal(prop)
 
 
 _.every = function(collection, func){
-   
-    // determine if func was not passed a value
-    if (!func){  // so true if 
-        // determine if array
+   var countA = 0;
+   var countO = 0;
+    
+        // determine if 'collection' is an ARRAY
         if (Array.isArray(collection)){
-            // if true then iterate
+            // IF 'collectin' is an ARRAY then begin to iterate to have access
+            // to every ELLEMENT in the ARRAY
             for (let i = 0; i < collection.length; i++){
-                // determine if current value is truthy
-                if (!collection[i]){
-                    return false;
+
+                // determine if the current element in colleciton is falsy with func
+            
+                if (!func(collection[i], i, collection)){
+                    return false; // incriment our countA by one if ELEMENT in ARRAY is TRUTHY.                 
+                } else {
+                    return true;
+                    //countA += 1;
+                }    
+            }    
+            // Test to verify collection is an object
+        }   else if (typeof collection === 'object' && collection !== null){  // test if collection is an object
+                // Begin FOR IN LOOP to access every key in object 'collection'
+                for (let key in collection){
+                    if (!func(collection[key], key, collection)){
+                        return false; // incriment our countA by one if ELEMENT in ARRAY is TRUTHY.
+                    } else {
+                        return true;
+                      }  
                 }
             }
-        }
-        else {  // else func was passed an object?
-            for (let key in collection){
-                if (!collection[key]){
-                    return false;
-                }
-            }
-        }        
-    }
-    else { //else func WAS passed a value
-        if (Array.isArray(collection)){ //determine if array
-            // if true then iterate
-            for (let i = 0; i < collection.length; i++){
-                // determine if current value returns false when passed into the function
-                if (!collection[i]){
-                    return false;
-                }
-            }
-        }
-        else {  // else func was passed an object?
-            for (let key in collection){
-                if (!collection[key]){
-                    return false;
-                }
-            }
-        }        
-    }
-return true;
+        //if (countA === collection.length || countO === collection.length){
+          //  return true;
+    
 }
+
 
 /** _.some
 * Arguments:
