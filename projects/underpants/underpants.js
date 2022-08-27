@@ -460,38 +460,40 @@ _.map(arrO[i], getVal(prop)
 
 
 _.every = function(collection, func){
-   var countA = 0;
-   var countO = 0;
-    
+   
         // determine if 'collection' is an ARRAY
         if (Array.isArray(collection)){
             // IF 'collectin' is an ARRAY then begin to iterate to have access
             // to every ELLEMENT in the ARRAY
             for (let i = 0; i < collection.length; i++){
-
-                // determine if the current element in colleciton is falsy with func
-            
-                if (!func(collection[i], i, collection)){
-                    return false; // incriment our countA by one if ELEMENT in ARRAY is TRUTHY.                 
+                if (typeof func === 'function'){
+                // determine if the current element in colleciton is falsy with func            
+                    if (!func(collection[i], i, collection)){
+                        return false; 
+                    } 
                 } else {
-                    return true;
-                    //countA += 1;
-                }    
+                        if (!collection[i]){
+                            return false;
+                        } 
+                    } 
             }    
             // Test to verify collection is an object
         }   else if (typeof collection === 'object' && collection !== null){  // test if collection is an object
                 // Begin FOR IN LOOP to access every key in object 'collection'
                 for (let key in collection){
-                    if (!func(collection[key], key, collection)){
-                        return false; // incriment our countA by one if ELEMENT in ARRAY is TRUTHY.
+                    //test if function exists
+                    if (typeof func === 'function'){
+                        if (!func(collection[key], key, collection)){
+                            return false; // incriment our countA by one if ELEMENT in ARRAY is TRUTHY.
+                        } 
                     } else {
-                        return true;
-                      }  
+                        if (!collection[key]){
+                            return false;
+                        } 
+                      }
                 }
             }
-        //if (countA === collection.length || countO === collection.length){
-          //  return true;
-    
+   return true; 
 }
 
 
@@ -516,6 +518,40 @@ _.every = function(collection, func){
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function(collection, func){
+    if (Array.isArray(collection)){
+        // IF 'collectin' is an ARRAY then begin to iterate to have access
+        // to every ELLEMENT in the ARRAY
+        for (let i = 0; i < collection.length; i++){
+            if (typeof func === 'function'){
+            // determine if the current element in colleciton is true with func            
+                if (func(collection[i], i, collection)){
+                    return true; 
+                } 
+            } else {
+                    if (collection[i]){
+                        return true;
+                    } 
+                } 
+        }    
+        // Test to verify collection is an object
+    }   else if (typeof collection === 'object' && collection !== null){  // test if collection is an object
+            // Begin FOR IN LOOP to access every key in object 'collection'
+            for (let key in collection){
+                //test if function exists
+                if (typeof func === 'function'){
+                    if (!func(collection[key], key, collection)){
+                        return true; // 
+                    } 
+                } else {
+                    if (!collection[key]){
+                        return true;
+                    } 
+                  }
+            }
+        }
+    return false;
+}
 
 /** _.reduce
 * Arguments:
@@ -536,23 +572,21 @@ _.every = function(collection, func){
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
-/*
+
 _.reduce = function(array, func, seed){
-    //determine if seed is not defined
-    if (seed !== undefined){ //
-        result = seed;
-        //iterate
-        for (let i = 0)
-            result = func(result, array[i], i, array); 
-    } else { // else seed is undefined
-        result = array[0]; //assign result first val in array
-        for (let i = 1){
-            result = func(result, array[i], i, array);
-        }
-    }
+    //iterate array
+       // if (seed){
+         //   let previous = seed;
+            for (let i = 0; i < array.length; i++){
+                array[i].func(previous, array[i], i)
+
+                
+            }
+    
+    
     return result;
 }
-*/
+
 
 //var output = nums.reduce
 
