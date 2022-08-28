@@ -574,17 +574,25 @@ _.some = function(collection, func){
 
 
 _.reduce = function(array, func, seed){
-    //iterate array
-       // if (seed){
-         //   let previous = seed;
-            for (let i = 0; i < array.length; i++){
-                array[i].func(previous, array[i], i)
-
-                
-            }
-    
-    
-    return result;
+    // declare var acc as accumulator/ return value
+    var acc;
+    //test for seed presence
+    if (seed !== undefined){
+        acc = seed; //IF present/ acc shall equal seed
+     // begin iterating array  
+    for (let i = 0; i < array.length; i++){
+        // assign or reassign accumulator variable to passed in function func
+        acc = func(acc, array[i], i);
+        }
+    } else {
+        acc = array[0]; //IF seed NOT present/ acc shall equal 1st element||value in array
+        //iterate
+        for (let i = 1; i < array.length; i++, array){ //Direction didn't mention a 4th parameter of the array in Objectives: 1)
+            // assign or reassign accumulator variable to passed in function func
+            acc = func(acc, array[i], i, array);
+            }  
+        } 
+    return acc;
 }
 
 

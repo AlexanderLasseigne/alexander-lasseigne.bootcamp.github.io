@@ -18,8 +18,8 @@
  * 
  * 3.  Hoisting
  * 
-// 1. declaration //
-/* 
+// 
+/* 1. declaration //
 At the declaration phase, the variable
 myName is undefined b/c we have NOT
 initialized it to anything
