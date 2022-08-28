@@ -596,8 +596,6 @@ _.reduce = function(array, func, seed){
 }
 
 
-//var output = nums.reduce
-
 /** _.extend
 * Arguments:
 *   1) An Object
@@ -605,13 +603,35 @@ _.reduce = function(array, func, seed){
 *   ...Possibly more objects
 * Objectives:
 *   1) Copy properties from <object 2> to <object 1>
-*   2) If more objects are passed in, copy their properties to <object 1> as well, in the order they are passed in.
+*   2) If more objects are passed in, copy their properties to
+*   <object 1> as well, in the order they are passed in.
 *   3) Return the update <object 1>
 * Examples:
 *   var data = {a:"one"};
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+// extend takes in an OBJECT and another 1 or more OBJECTS
+_.extend = function(destin, ...obs){
+    //for in loop to iterate all properties(keys) in current obs passed in (unknown quantity)
+    for (let key in obs){
+        let v = obs[key]; // to shorten accessing each keys value in current obs
+        //IF value is NOT an object then...
+        if (typeof v !== 'object' && v !== null && !Array.isArray(v)){ //&& v !== null && !Array.isArray(v)){
+            destin[key] = obs[key]; //copy key value pair over to destin
+        } else 
+        if (typeof v === 'object' && v !== null && !Array.isArray(v)){
+            for (let ikey in v){
+                destin[ikey] = v[ikey]; 
+                console.log(destin); 
+            }
+
+        }
+        
+        
+    }
+}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
