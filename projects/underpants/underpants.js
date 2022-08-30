@@ -49,7 +49,7 @@ _.identity = function(value){
 
 //.typeOf takes in any value and returns the type
 
-_.typeOf = function(value){ 
+_.typeOf = function(value){  // yup
     if (typeof value === 'string'){
         return 'string';
     } if (value === true || value === false){
@@ -68,41 +68,7 @@ _.typeOf = function(value){
     return 'object';
     }
 } 
-   
-/*-------------------------------------------------------
- 
-    // trying to use a switch but abbandonned b/c time    
-    let type = typeof value;
-    let output = '';
-    switch(type){
-        case 'string':
-            return 'string';
-            break;
-          
-            break;
-        case 'undefined':
-            return 'undefined';
-            break;
-        case 'number':
-            return 'number';
-            break;
-        case 'boolean':
-            return 'boolean';
-            break;
-        case 'null':
-            return 'null';
-            break;
-        case 'function':
-            return 'function';
-            break;
-        case 'object':
-            if (Array.isArray(value)){      
-                return 'array';
-            }
-    }
-}
 
-*/
 
 /** _.first
 * Arguments:
@@ -157,13 +123,13 @@ _.last = function(arr, num){
     //IF array is not an array return []
     if (!Array.isArray(arr) || num <= 0){
         return [];
-    } if (num > arr.length){
-        return arr;
+    } if (num > arr.length){ //if number is greater then the length of                          
+        return arr;             //array given
     }
-      if (!num || num > arr.length){
-        return arr[arr.length - 1];
-    } if (num >= 0){
-    return arr.slice(-num);
+      if (!num || num > arr.length){ //if num is not given.
+        return arr[arr.length - 1]; //return last item in array 
+    } if (num >= 0){ //IF num is given as paramater
+    return arr.slice(-num);//return last number of items in array
     }
     //arr.splice(arr.length - num, num);    
 
@@ -185,14 +151,15 @@ _.last = function(arr, num){
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
-_.indexOf = function(arr, val){
-    var output;
+_.indexOf = function(arr, val){//take value and array
+    //loop array 
     for (let i = 0; i < arr.length; i++){
+        //if current element in array is equal to value given
         if (val === arr[i]){
-            return i;
+            return i; //return index
         }       
     }
-    return -1;
+    return -1; //if NOT return -1
 }
 
 /** _.contains
@@ -211,7 +178,10 @@ _.indexOf = function(arr, val){
 */
 
 
-_.contains = function(arr, value){
+_.contains = function(arr, value){ 
+    //used _.indexOf to evaluate if value was present. If it did NOT
+    //return -1 then the value exists and contains returns true. 
+    //returns false if value does not exist
     return (_.indexOf(arr, value) !== -1) 
         ? true
         : false;
@@ -237,11 +207,13 @@ _.contains = function(arr, value){
 _.each = function(collection, func){
     if (Array.isArray(collection)){ //IF 'collection' is and ARRAY then...
         for (let i = 0; i < collection.length; i++){
+            //run each item throug func passing it in, the index, and colleciton
             func(collection[i], i, collection);
         } 
     } else {//if (typeof collection === 'object'){
 
         for (let key in collection){
+            //run each item throug func passing it in, the key, and colleciton
             func(collection[key], key, collection);
         }
       }   
@@ -394,16 +366,18 @@ _.map = function(coll, func){
         //call function on each item in 'coll' ARRAY passing in.
         //-element, index, coll
         for (let i = 0; i < coll.length; i++){
+        //push result of running func to output array
         output.push(func(coll[i], i, coll));
         }
      
       // IF coll = OBJECT  
     } else {_.typeOf(coll) === 'object'  //else its an object
         for (let key in coll){
+            //push result of running func to output array
             output.push(func(coll[key], key, coll))
         }
       }
-    return output; //
+    return output; 
 }
 
 /** _.pluck
@@ -419,23 +393,12 @@ _.map = function(coll, func){
 
 // function takes in an array of objects and a property
 _.pluck = function(arrObj, prop){
-
-    return _.map(arrObj, function(e){
-        return e[prop];
+    // map returns new array of each element passed to it's given function 
+    return _.map(arrObj, function(e){ 
+        return e[prop]; 
     })
       
 }
-
-
-/*
-getVal = function(keyName){
-        
-}
-for (let i = 0; i < arrO.length; i++){
-    
-_.map(arrO[i], getVal(prop)
-}
-*/
 
 /** _.every
 * Arguments:
