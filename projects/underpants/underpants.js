@@ -614,24 +614,12 @@ _.reduce = function(array, func, seed){
 
 // extend takes in an OBJECT and another 1 or more OBJECTS
 _.extend = function(destin, ...obs){
-    //for in loop to iterate all properties(keys) in current obs passed in (unknown quantity)
-    for (let key in obs){
-        let v = obs[key]; // to shorten accessing each keys value in current obs
-        //IF value is NOT an object then...
-        if (typeof v !== 'object' && v !== null && !Array.isArray(v)){ //&& v !== null && !Array.isArray(v)){
-            destin[key] = obs[key]; //copy key value pair over to destin
-        } else 
-        if (typeof v === 'object' && v !== null && !Array.isArray(v)){
-            for (let ikey in v){
-                destin[ikey] = v[ikey]; 
-                console.log(destin); 
-            }
+   return Object.assign(destin, ...obs) // OMG Object.assign is in
+   //the official release and will create a shallow copy of the object!!!
+}  //Alex covered this exact scenario in class and I've been sooo
+   //confused and playing catch up that it didn't hit me till just now!
+   //Thank you ghostDog_alex!!! /bow/ 
 
-        }
-        
-        
-    }
-}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
