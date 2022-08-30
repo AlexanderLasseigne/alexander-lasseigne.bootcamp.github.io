@@ -49,7 +49,7 @@ _.identity = function(value){
 
 //.typeOf takes in any value and returns the type
 
-_.typeOf = function(value){  // yup
+_.typeOf = function(value){  // 
     if (typeof value === 'string'){
         return 'string';
     } if (value === true || value === false){
