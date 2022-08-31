@@ -37,14 +37,31 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 let isEven = function(n){
-  //Base
-  if (n === 0){
-    return true;
-  } else if (n === 1){
-    return false;
+  if (n > 0) {
+    return positive(n);
+  } else {
+    return negative(n);
+  }
+
+  function negative(num) {
+    if (num === 0) {
+      return true;
+    } else if (num === -1) {
+      return false;
     } else {
-      return isEven(n - 2);
-      }
+      return isEven(num + 2);
+    }
+  }
+
+  function positive(num) {
+    if (num === 0) {
+      return true;
+    } else if (num === 1) {
+      return false;
+    } else {
+      return isEven(num - 2);
+    }
+  }
 };
 
 // 5. Sum all integers below a given integer.

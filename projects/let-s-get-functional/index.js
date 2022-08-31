@@ -3,7 +3,7 @@
 'use strict';
 
 var customers = require('./data/customers.json');
-var _ = require('underbar');
+var _ = require('lodown-alexanderlasseigne');
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -21,14 +21,14 @@ var _ = require('underbar');
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
 
-var maleCount = function(array) {
+var maleCount = function(customers) {
     // invoke _.filter() to return an array of only the male customers
     var count = 0; 
-    return _.filter(array, func(customer){
-        if (customer[gender] === 'male'){
+    return _.filter(arr, func){
+        if (arr[i] === 'male'){
             count += 1;
         }
-     });
+     };
      return count;
     //return the length of that array
 };
