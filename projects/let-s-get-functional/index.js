@@ -3,7 +3,8 @@
 'use strict';
 
 var customers = require('./data/customers.json');
-var _ = require('lodown-alexanderlasseigne');
+var _ = require('underbar');
+const { mapValues } = require('lodash');
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -17,21 +18,30 @@ var _ = require('lodown-alexanderlasseigne');
  * 4. To test your work, run the following command in your terminal:
  *
  *    npm start --prefix ./alexander-lasseigne.bootcamp.github.io/projects/let-s-get-functional
+ *      npm start ./workspace alexander-lasseigne.bootcamp.github.io/projects/let-s-get-functional
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
 
-var maleCount = function(customers) {
+/**
+ * ### 1: `maleCount`
+ - **Objective**: Find the number of male customers   
+ - **Input**: `Array`
+ - **Output**: `Number`
+ - **Constraints**: use `filter`
+ */
+
+var maleCount = function(array) {
     // invoke _.filter() to return an array of only the male customers
-    var count = 0; 
-    return _.filter(arr, func){
-        if (arr[i] === 'male'){
-            count += 1;
-        }
-     };
-     return count;
+    //filter takes in array and passes each element through function 
+    var males =  _.filter(array, function(customer){
+        //filter returns 
+        return customer.gender === 'male';
+        });   
+        console.log(males);
+     return males.length; // number of true
     //return the length of that array
-};
+}; 
 
 var femaleCount;
 
