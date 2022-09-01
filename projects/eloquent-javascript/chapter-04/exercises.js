@@ -2,9 +2,40 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
+function range(begin, end){
+  let output = [];
+  if (begin < end){
+    //count = 1;
+    for (let i = begin; i <= end; i++){
+      output.push(i);
+    }
+  } else {
+    
+    for (let i = begin; i >= end; i++){
+      output.push(i);
+    }
+    
+  }
+return output;
 
 }
+
+function add(output){
+let final = 0;
+for (let i = 0; i < output.length; i++){
+  final += output[i];
+}
+return final;
+}
+
+
+// function sum(output){
+// let final = 0;
+// for (let value of output){
+//   final += value;
+// }
+// return total;
+// }
 
 ////////////////////////////////////////////////////////////////////////////////
 // sum /////////////////////////////////////////////////////////////////////////
