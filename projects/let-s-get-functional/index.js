@@ -43,7 +43,14 @@ var maleCount = function(array) {
     //return the length of that array
 }; 
 
-var femaleCount;
+var femaleCount = function(array){
+
+    var females = _.reduce(array, function(acc, curr){
+        acc += curr.gender === 'female';
+        return acc;
+    });
+    return females.length;
+}
 
 var oldestCustomer;
 
