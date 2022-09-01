@@ -59,7 +59,17 @@ var friendFirstLetterCount;
 
 var friendsCount;
 
-var topThreeTags;
+var topThreeTags = function(arr){
+    let tmp = [];
+    for (let i = 0; i < arr.length; i++){
+        for (let ii = 0; ii < arr[i].tmp.length; ii++){
+            //nested loop pushes 
+            tmp.push(arr[i].tmp[ii]);
+
+        }
+        
+    }
+}
 
 var genderCount;
 
