@@ -3,20 +3,20 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 function range(begin, end){
-  let output = [];
-  if (begin < end){
-    //count = 1;
-    for (let i = begin; i <= end; i++){
-      output.push(i);
-    }
-  } else {
+//   let output = [];
+//   if (begin < end){
+//     //count = 1;
+//     for (let i = begin; i <= end; i++){
+//       output.push(i);
+//     }
+//   } else {
     
-    for (let i = begin; i >= end; i++){
-      output.push(i);
-    }
+//     for (let i = begin; i >= end; i++){
+//       output.push(i);
+//     }
     
-  }
-return output;
+//   }
+// return output;
 
 }
 
@@ -48,12 +48,12 @@ function reverseArray(arr) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function reverseArrayInPlace(arr) {
-  for (let i = 0; i < Math.floor(arr.length / 2); i++){
-    let tmp = arr[i];
-    arr[i] = arr[arr.length - 1 - i];
-    arr[arr.length - 1 - i] = tmp;
-  }
-  return arr;
+  // for (let i = 0; i < Math.floor(arr.length / 2); i++){
+  //   let tmp = arr[i];
+  //   arr[i] = arr[arr.length - 1 - i];
+  //   arr[arr.length - 1 - i] = tmp;
+  // }
+  // return arr;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

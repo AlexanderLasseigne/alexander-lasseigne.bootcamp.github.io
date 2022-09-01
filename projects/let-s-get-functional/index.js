@@ -4,7 +4,7 @@
 
 var customers = require('./data/customers.json');
 var _ = require('underbar');
-const { mapValues } = require('lodash');
+
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -18,7 +18,7 @@ const { mapValues } = require('lodash');
  * 4. To test your work, run the following command in your terminal:
  *
  *    npm start --prefix ./alexander-lasseigne.bootcamp.github.io/projects/let-s-get-functional
- *      npm start ./workspace alexander-lasseigne.bootcamp.github.io/projects/let-s-get-functional
+ *    
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
@@ -49,7 +49,14 @@ var oldestCustomer;
 
 var youngestCustomer;
 
-var averageBalance;
+
+//*************FIX      FIX */
+ var averageBalance = function(arr){
+//     //use map to access each object
+//     let avg = arr.map(function(customer){
+//         let str = customer.balance.
+//     })
+ };
 
 
 
