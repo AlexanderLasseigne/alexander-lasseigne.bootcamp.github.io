@@ -6,26 +6,30 @@
 // factorial(5);  // 120
 var factorial = function(n) {
   // base - define a condition that tells function when to stop
-  if (n === 0){
+  //test if n is 0 to end recursion
+  if (n == 0){
     return 1;
-  } if (n <= 0){
-    return null;
-  }
+  } if (n < 0){ //test n if negative and return null if so
+      return null;
+    } else {
   // recursion - what to do when not base case
-  return n * factorial(n - 1);
+      //unresolvable expression so n * remains and function factoral is called again with  new parameter
+      return n * factorial(n - 1); // new parameter when called is current value of n - 1
+    }
 }
-//**?? Soo.. this shows us that the stack keeps calls waiting (like a queue) to b performed, from the function, until all calls can be resolved?
 
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
-var sum = function(array) {
+var sum = function(array) { //expression assigns function to sum and when called will take in array
   //base
-  if (array.length === 0){
-    return 0; 
+  if (array.length === 0){ //test length of array for any remaining values
+    return 0; //end if array is empty
   } 
 
   //recursion
-  
+  //the first item in array begins expression of adding it to the possibly unresolvable function
+  //if unresolved function is called back until base is met with the remaining array as parameter
+  //after the first element keeps getting added to the expression  
   return array[0] + sum(array.slice(1));
 };
 
@@ -37,29 +41,32 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 let isEven = function(n){
+  //Base cases
+  //test if n is greater than 0
   if (n > 0) {
-    return positive(n);
+    return positive(n); //if greater than 0 call positive function 
   } else {
-    return negative(n);
+    return negative(n);//else call negative function 
   }
-
+  // test if value is 0
   function negative(num) {
-    if (num === 0) {
+    if (num === 0) { // if value is 0 return true
       return true;
-    } else if (num === -1) {
+    } else if (num === -1) { // if value is negative 1 return false
       return false;
-    } else {
-      return isEven(num + 2);
+    } else { //recursion
+      return isEven(num + 2); //else return function with value plus 2
     }
   }
 
   function positive(num) {
-    if (num === 0) {
+    //base cases
+    if (num === 0) {// if value is 0 return true
       return true;
-    } else if (num === 1) {
+    } else if (num === 1) { //if value is 1 return false
       return false;
-    } else {
-      return isEven(num - 2);
+    } else { //recursion
+      return isEven(num - 2); //else return function with value minus 2
     }
   }
 };
@@ -140,7 +147,7 @@ var reverse = function(string) {
     return string;
   }
   //recursion 
-  console.log(string);
+  //console.log(string);
   return string[string.length] + reverse(string.slice(1, string.length - 1))
 };
 
@@ -219,7 +226,9 @@ var createArray = function(str){
 
 // 17. Reverse the order of an array
 var reverseArr = function (array) {
-  if (array.length === 1) return [array[0]];
+  if (array.length === 1){
+    return [array[0]];
+  }
   var list = reverseArr(array.slice(1, array.length));
   list.push(array[0]);
   return list;
