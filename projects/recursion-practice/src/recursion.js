@@ -164,7 +164,8 @@ var reverse = function(string) {
 };
 
 // 10. Write a function that determines if a string is a palindrome.
-var palindrome = function(string) {
+var palindrome = function(stringIn) {
+  let string = stringIn.split(' ').join('')
   if (string.length === 1) return true; //if string is 1 char return true
   if (string.length === 2) return string[0].toLowerCase() === string[1].toLowerCase(); // if string 2 chars, if they are same then true
   // if first char 
@@ -354,15 +355,13 @@ var flatten = function(arrays) {
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str, obj) {
-  if (str.length === 0) return obj;
-  letterTally(str.substring(1), obj);
-  if (obj[str[0]] === undefined) {
-    obj[str[0]] = 1;
-  } else {
-    obj[str[0]] += 1;
+var letterTally = function(str) {
+  //iterate string with for of loop
+  let obj = {}; 
+  for (let s of str){
+
+    obj.s  
   }
-  return obj;
 };
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
