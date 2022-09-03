@@ -355,13 +355,20 @@ var flatten = function(arrays) {
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str) {
-  //iterate string with for of loop
-  let obj = {}; 
-  for (let s of str){
+var letterTally = function(string, occ=1) {
+  //base case: if first char doesn't exist (string is empty) return 0 end function
+  if (!string[0]){
+    return 0;
+  } 
+  //recursion case: if first char DOES exist
+  
+  //add char to obj as key
+  //compare first char to each character in string
 
-    obj.s  
-  }
+  //IF it matches any character increment occur += 1(charAt 1-? )
+
+  //else do nothing
+  //return occurances + letterTally(rest of string, occ)
 };
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
