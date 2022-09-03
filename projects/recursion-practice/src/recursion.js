@@ -66,45 +66,57 @@ let isEven = function(n){
     } else if (num === 1) { //if value is 1 return false
       return false;
     } else { //recursion
-      return isEven(num - 2); //else return function with value minus 2
-    }
-  }
+      return isEven(num - 2); //else return function with value minus 2    
+    }                         //-and get that  recursion requirement from  
+  }                           //the assignment directions
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
-  //base
-  if (n === 0){
+  //base case of 0 to end recursion once all integers below/above parameter 
+  if (n === 0){// -in value are added to pending execution
     return 0;
   }
   //recursion
-  if (n > 0){ 
-  return (n - 1) + sumBelow(n - 1);
+  if (n > 0){ // test for positive and decrement down to 0 base case if T
+  return (n - 1) + sumBelow(n - 1); // in recursion.  
   } 
-  if (n < 0){
+  if (n < 0){ // test for negative and increment up to 0 base case if T
     return (n + 1) + sumBelow(n + 1);
   }
 
 };
-console.log(sumBelow(5));
+
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
-  var isInc = true;
-  if (x > y) {
-    var temp = x;
-    x = y;
-    y = temp;
-    isInc = false;
+  // base case
+  var isInc = true; //isInc (my 'catch', 'default', or 'seed') set to true initially
+  if (x > y) { // test direction of range. if first value greater flip them
+    var temp = x;       // temporarilly assign and reassign 
+    x = y;              //flippity do-da>
+    y = temp; // flip the range to make value of x the lower number to correct range direction 
+              // from left to right
+    isInc = false; //toggle default if this IF statement is executed
   }
-  if (x === y) return [];
-  if (x+1 === y) return [];
-  var res = range(x, y-1);
-  res.push(y-1);
-  return isInc ? res : res.reverse();
+  if (x === y) return [];// if give values are equal return empty array
+  if (x+1 === y) return [];// if first value plus 1 equals second value return empty array
+  //recursion                          
+  var res = range(x, y-1); // res variable initialized with  callback
+  res.push(y-1); // push 
+  //
+  if (isInc){ // if projected value range is in correct direction
+    return res; //<= return array 
+  } else if (!isInc){ // if not correct direction
+    return res.reverse();//-reverse it and return
+    }
 }
+
+
+
+
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
@@ -141,26 +153,28 @@ var powerOfTwo = function(n) {
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
   //base 
-  //default variable
-  var output = '';
-  if (string.length === 0){
-    return string;
-  }
+  if (string.length <= 1){
+    return string; //test for empty string. end if empty.
+  } else {
   //recursion 
   //console.log(string);
-  return string[string.length] + reverse(string.slice(1, string.length - 1))
+  // expression starts/continues if we reach this point with the last character in string
+    return string.charAt(string.length - 1) + reverse(string.substring(0, string.length - 1));
+    }                                           // -calls reverse with new paramater of string without that last value.
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
-  var str = '';
-  if (string.length === 0) return true;
-  if (string.length === 1) return true;
-  if (string.charAt(0).toLowerCase() !== string.charAt(string.length-1).toLowerCase()) {
-    return false;
-  }
-  str = string.substring(1, string.length - 1);
-  return palindrome(str);
+  if (string.length === 1) return true; //if string is 1 char return true
+  if (string.length === 2) return string[0].toLowerCase() === string[1].toLowerCase(); // if string 2 chars, if they are same then true
+  // if first char 
+  if (string[0].toLowerCase() === string.slice(-1).toLowerCase()){ 
+    return palindrome(string.slice(1, -1));
+  }  
+
+   
+  // if lowercase of first char does NOT match last char lowercase version of itself 
+  return false;
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
